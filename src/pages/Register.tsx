@@ -1,7 +1,6 @@
 import { ChangeEvent, SyntheticEvent } from "react";
 import { useState } from "react";
 import axios from "axios";
-import { axiosconfig } from "../api/lib/axios/axiosconfig";
 
 const initialVal = {
     name: "",
@@ -19,24 +18,10 @@ const Register = () => {
     }
     const register = (e: SyntheticEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        axios.create().post(`${axiosconfig.baseURL}api/lib/services/register`, inputVal).then(
-            (res) => {
-                console.log(res.data.message);
-            },
-            (rej) => {
-                console.log(rej);
-            }
-        )
+        console.log("supposed to register one user");
     }
     const getUsers = () => {
-        axios.create().get(`${axiosconfig.baseURL}api/lib/services/register`).then(
-            (res) => {
-                console.log(res.data.message);
-            },
-            (rej) => {
-                console.log(rej);
-            }
-        )
+        console.log("supposed to get all user data");
     }
     return (
         <>

@@ -1,7 +1,4 @@
-import React from "react";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { axiosconfig } from "../api/lib/axios/axiosconfig";
 
 const User = () => {
     const reqBody = {
@@ -9,25 +6,9 @@ const User = () => {
         uid: 0
     }
     const [scores, setScores] = useState(null);
-    useEffect(() => {
-        reqBody.uid = JSON.parse(sessionStorage.getItem("logUser"))[0].uid
-        axios.create().post(`${axiosconfig.baseURL}api/lib/services/score`, reqBody).then(
-            (res) => {
-                setScores(res.data.message);
-            },
-            (rej) => {
-                console.log(rej);
-            }
-        )
-        // axios.create().post(`${axiosconfig.baseURL}api/lib/pseudoServices/pseudoScore`, reqBody).then(
-        //     (res) => {
-        //         setScores(res.data.message);
-        //     },
-        //     (rej) => {
-        //         console.log(rej);
-        //     }
-        // )
-    }, [])
+    // useEffect(() => {
+    //     reqBody.uid = JSON.parse(sessionStorage.getItem("logUser"))[0].uid
+    // }, [])
     return (
         <>
             <h4>user</h4>
@@ -42,7 +23,7 @@ const User = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {/* {
                             scores.map((data: any, idx: number) => {
                                return (
                                 <tr key={idx}>
@@ -52,7 +33,7 @@ const User = () => {
                                 </tr>
                                )
                             })
-                        }
+                        } */}
                     </tbody>
                 </table>
                 : null

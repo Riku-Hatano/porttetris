@@ -1,5 +1,5 @@
-import Tetris from "../../gamelogic/Tetris";
-import CheckLogUser from "../../utils/CheckLogUser";
+import Tetris from "../gamelogic/Tetris";
+import CheckLogUser from "../utils/CheckLogUser";
 
 const Game = () => {
     CheckLogUser();
