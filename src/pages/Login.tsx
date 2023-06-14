@@ -1,6 +1,5 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
-import axios from "axios";
-
+import { useLocation } from "react-router";
 const initialVal = {
     name: "",
     pw: ""
@@ -8,7 +7,7 @@ const initialVal = {
 
 const Login = () => {
     const [inputVal, setInputVal] = useState(initialVal);
-    const router = useRouter();
+    const router = useLocation();
     const inputChange = (e: ChangeEvent<HTMLInputElement>): void => {
         setInputVal({
             ...inputVal,
@@ -17,19 +16,7 @@ const Login = () => {
     }
     const login = (e: SyntheticEvent<HTMLFormElement>): void => {
         e.preventDefault();
-        axios.create().post(`${axiosconfig.baseURL}api/lib/services/login`, inputVal).then(
-            (res) => {
-                if(res.data.message !== null) {
-                    router.push("/user");
-                    sessionStorage.setItem("logUser", JSON.stringify(res.data.message));
-                } else {
-                    alert("no user");
-                }
-            },
-            (rej) => {
-                console.log(rej);
-            }
-        )
+        console.log("supposed to login");
     }
     return (
         <>
