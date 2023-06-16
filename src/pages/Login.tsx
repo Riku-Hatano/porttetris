@@ -1,5 +1,6 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 import { useLocation } from "react-router";
+
 const initialVal = {
     name: "",
     pw: ""

@@ -1,5 +1,4 @@
-import axios from "axios";
-import { axiosconfig } from "../../../pages/api/lib/axios/axiosconfig";
+import { invoke } from "@tauri-apps/api/tauri";
 import { dropBlockInterval } from "../dropblock/DropBlock";
 import container from "../../../css/game.module.css";
 import { gameOverModal } from "../../Main";
@@ -28,24 +27,8 @@ const GameOver = () => {
         uid: 0,
         purpose: "send"
     }
-    sessionStorage.getItem("logUser") ? scoreData.uid = JSON.parse(sessionStorage.getItem("logUser"))[0].uid : false;
-    
-    // axios.create().post(`${axiosconfig.baseURL}api/lib/services/score`, scoreData).then(
-    //     (res) => {
-    //         console.log(res);
-    //     },
-    //     (rej) => {
-    //         console.log(rej);
-    //     }
-    // )
-    // axios.create().post(`${axiosconfig.baseURL}api/lib/pseudoServices/pseudoScore`, scoreData).then(
-    //     (res) => {
-    //         console.log(res);
-    //     },
-    //     (rej) => {
-    //         console.log(rej);
-    //     }
-    // )
+    console.log("gameover by frontend");
+    invoke("gameover");
 }
 
 export default GameOver;
